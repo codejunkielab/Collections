@@ -9,3 +9,4 @@ obj/
 *.DotSettings.user
 *.binlog
 .idea
+CLAUDE.md

@@ -19,7 +19,8 @@ public sealed class LinkedList<T> : ICollection<T>, IEnumerable<T>, IEnumerable 
     private System.Collections.Generic.LinkedList<T>.Enumerator _enumerator;
 
     internal Enumerator(System.Collections.Generic.LinkedList<T> linkedList) {
-      ArgumentNullException.ThrowIfNull(linkedList);
+      if (linkedList == null)
+        throw new ArgumentNullException(nameof(linkedList));
 
       _enumerator = linkedList.GetEnumerator();
     }
@@ -252,7 +253,7 @@ public sealed class LinkedList<T> : ICollection<T>, IEnumerable<T>, IEnumerable 
   /// <summary>
   /// Checks if the LinkedList contains a specific node
   /// </summary>
-  /// <param name="node">The node to check</param>
+  /// <param name="array">The array to check</param>
   /// <param name="index">The index of the node</param>
   public void CopyTo(T[] array, int index) {
     _linkedList.CopyTo(array, index);
